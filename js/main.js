@@ -2,46 +2,12 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize all components
-  initThemeToggle();
   initNavigation();
   initProductGallery();
   initProductFilters();
   initContactForm();
   initScrollAnimations();
 });
-
-// ===== Theme Toggle (Light/Dark Mode) =====
-function initThemeToggle() {
-  const themeToggle = document.getElementById('theme-toggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  // Check for saved theme preference or use system preference
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    if (themeToggle) themeToggle.checked = savedTheme === 'dark';
-  } else if (prefersDark) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    if (themeToggle) themeToggle.checked = true;
-  }
-  
-  if (themeToggle) {
-    themeToggle.addEventListener('change', () => {
-      const theme = themeToggle.checked ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    });
-  }
-  
-  // Listen for system theme changes
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-      const theme = e.matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', theme);
-      if (themeToggle) themeToggle.checked = e.matches;
-    }
-  });
-}
 
 // ===== Mobile Navigation =====
 function initNavigation() {
