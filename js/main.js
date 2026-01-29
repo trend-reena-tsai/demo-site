@@ -74,6 +74,7 @@ function initProductGallery() {
 function initProductFilters() {
   const categoryFilter = document.getElementById('category-filter');
   const sortFilter = document.getElementById('sort-filter');
+  const featuredToggle = document.getElementById('featured-toggle');
   const productCards = document.querySelectorAll('.product-card');
   
   if (categoryFilter) {
@@ -84,13 +85,22 @@ function initProductFilters() {
     sortFilter.addEventListener('change', sortProducts);
   }
   
+  if (featuredToggle) {
+    featuredToggle.addEventListener('change', filterProducts);
+  }
+  
   function filterProducts() {
-    const selectedCategory = categoryFilter.value.toLowerCase();
+    const selectedCategory = categoryFilter ? categoryFilter.value.toLowerCase() : 'all';
+    const showFeaturedOnly = featuredToggle ? featuredToggle.checked : false;
     
     productCards.forEach(card => {
       const cardCategory = card.dataset.category?.toLowerCase() || '';
+      const isFeatured = card.querySelector('.product-badge') !== null;
       
-      if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+      const matchesCategory = selectedCategory === 'all' || cardCategory === selectedCategory;
+      const matchesFeatured = !showFeaturedOnly || isFeatured;
+      
+      if (matchesCategory && matchesFeatured) {
         card.style.display = 'block';
         setTimeout(() => card.style.opacity = '1', 10);
       } else {
