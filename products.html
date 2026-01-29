@@ -29,11 +29,18 @@
         </ul>
       </nav>
       
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-actions">
+        <label class="toggle-switch" aria-label="Toggle dark mode">
+          <input type="checkbox" id="theme-toggle">
+          <span class="toggle-slider"></span>
+        </label>
+        
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -70,14 +77,6 @@
             <option value="name-az">Name: A to Z</option>
             <option value="name-za">Name: Z to A</option>
           </select>
-        </div>
-        
-        <div class="toggle-group">
-          <span class="toggle-label">Featured only</span>
-          <label class="toggle-switch">
-            <input type="checkbox" id="featured-toggle">
-            <span class="toggle-slider"></span>
-          </label>
         </div>
       </div>
       

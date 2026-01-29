@@ -7,12 +7,35 @@
   --color-secondary: #2C3E50;
   --color-accent: #E8B86D;
   
-  /* Neutrals */
+  /* Neutrals - Light Mode */
   --color-cream: #FDF8F3;
   --color-warm-white: #FFFAF5;
   --color-warm-gray: #6B5B4F;
   --color-light-gray: #E8E0D8;
   --color-dark: #2D2420;
+  
+  /* Component Colors */
+  --color-card-bg: #ffffff;
+  --color-header-bg: rgba(255, 250, 245, 0.95);
+  --color-footer-bg: #2C3E50;
+  --color-text: #2D2420;
+  --color-text-muted: #6B5B4F;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --color-cream: #1a1a1a;
+  --color-warm-white: #121212;
+  --color-warm-gray: #a0a0a0;
+  --color-light-gray: #333333;
+  --color-dark: #f5f5f5;
+  --color-secondary: #f5f5f5;
+  
+  --color-card-bg: #1e1e1e;
+  --color-header-bg: rgba(18, 18, 18, 0.95);
+  --color-footer-bg: #0a0a0a;
+  --color-text: #f5f5f5;
+  --color-text-muted: #a0a0a0;
   
   /* Typography */
   --font-heading: 'Playfair Display', Georgia, serif;
@@ -57,8 +80,9 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
-  color: var(--color-dark);
+  color: var(--color-text);
   background-color: var(--color-warm-white);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 img {
@@ -173,9 +197,10 @@ p {
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: rgba(255, 250, 245, 0.95);
+  background-color: var(--color-header-bg);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-normal);
 }
 
 .header .container {
@@ -229,6 +254,27 @@ p {
   width: 100%;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.header-actions .toggle-switch {
+  width: 60px;
+  height: 30px;
+}
+
+.header-actions .toggle-slider::before {
+  width: 22px;
+  height: 22px;
+  left: 2px;
+}
+
+.header-actions .toggle-switch input:checked + .toggle-slider::before {
+  left: calc(100% - 24px);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -243,7 +289,7 @@ p {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--color-secondary);
+  background-color: var(--color-text);
   transition: var(--transition-fast);
 }
 
@@ -331,7 +377,7 @@ p {
 }
 
 .product-card {
-  background-color: white;
+  background-color: var(--color-card-bg);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -460,7 +506,7 @@ p {
 .feature-card {
   text-align: center;
   padding: var(--spacing-lg);
-  background-color: white;
+  background-color: var(--color-card-bg);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
@@ -610,9 +656,10 @@ p {
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
   padding: var(--spacing-md);
-  background-color: white;
+  background-color: var(--color-card-bg);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-normal);
 }
 
 .filter-group {
@@ -631,9 +678,10 @@ p {
   border: 1px solid var(--color-light-gray);
   border-radius: var(--radius-md);
   font-family: var(--font-body);
-  color: var(--color-dark);
-  background-color: white;
+  color: var(--color-text);
+  background-color: var(--color-card-bg);
   cursor: pointer;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 .filter-select:focus {
@@ -687,9 +735,10 @@ p {
 .team-card {
   text-align: center;
   padding: var(--spacing-lg);
-  background-color: white;
+  background-color: var(--color-card-bg);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-normal);
 }
 
 .team-card img {
@@ -768,10 +817,11 @@ p {
 }
 
 .contact-form {
-  background-color: white;
+  background-color: var(--color-card-bg);
   padding: var(--spacing-xl);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+  transition: background-color var(--transition-normal);
 }
 
 .form-group {
@@ -793,7 +843,9 @@ p {
   border-radius: var(--radius-md);
   font-family: var(--font-body);
   font-size: 1rem;
-  transition: border-color var(--transition-fast);
+  color: var(--color-text);
+  background-color: var(--color-card-bg);
+  transition: border-color var(--transition-fast), background-color var(--transition-normal), color var(--transition-normal);
 }
 
 .form-group input:focus,
@@ -816,9 +868,10 @@ p {
 
 /* ===== Footer ===== */
 .footer {
-  background-color: var(--color-secondary);
+  background-color: var(--color-footer-bg);
   color: white;
   padding: var(--spacing-xxl) 0 var(--spacing-lg);
+  transition: background-color var(--transition-normal);
 }
 
 .footer-grid {
@@ -1055,7 +1108,7 @@ p {
     top: 80px;
     left: 0;
     right: 0;
-    background-color: var(--color-warm-white);
+    background-color: var(--color-header-bg);
     flex-direction: column;
     align-items: center;
     padding: var(--spacing-lg);

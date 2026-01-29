@@ -2,12 +2,46 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize all components
+  initThemeToggle();
   initNavigation();
   initProductGallery();
   initProductFilters();
   initContactForm();
   initScrollAnimations();
 });
+
+// ===== Theme Toggle (Light/Dark Mode) =====
+function initThemeToggle() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  // Check for saved theme preference or use system preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (themeToggle) themeToggle.checked = savedTheme === 'dark';
+  } else if (prefersDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    if (themeToggle) themeToggle.checked = true;
+  }
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('change', () => {
+      const theme = themeToggle.checked ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    });
+  }
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      const theme = e.matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      if (themeToggle) themeToggle.checked = e.matches;
+    }
+  });
+}
 
 // ===== Mobile Navigation =====
 function initNavigation() {
@@ -74,7 +108,6 @@ function initProductGallery() {
 function initProductFilters() {
   const categoryFilter = document.getElementById('category-filter');
   const sortFilter = document.getElementById('sort-filter');
-  const featuredToggle = document.getElementById('featured-toggle');
   const productCards = document.querySelectorAll('.product-card');
   
   if (categoryFilter) {
@@ -85,22 +118,13 @@ function initProductFilters() {
     sortFilter.addEventListener('change', sortProducts);
   }
   
-  if (featuredToggle) {
-    featuredToggle.addEventListener('change', filterProducts);
-  }
-  
   function filterProducts() {
-    const selectedCategory = categoryFilter ? categoryFilter.value.toLowerCase() : 'all';
-    const showFeaturedOnly = featuredToggle ? featuredToggle.checked : false;
+    const selectedCategory = categoryFilter.value.toLowerCase();
     
     productCards.forEach(card => {
       const cardCategory = card.dataset.category?.toLowerCase() || '';
-      const isFeatured = card.querySelector('.product-badge') !== null;
       
-      const matchesCategory = selectedCategory === 'all' || cardCategory === selectedCategory;
-      const matchesFeatured = !showFeaturedOnly || isFeatured;
-      
-      if (matchesCategory && matchesFeatured) {
+      if (selectedCategory === 'all' || cardCategory === selectedCategory) {
         card.style.display = 'block';
         setTimeout(() => card.style.opacity = '1', 10);
       } else {
