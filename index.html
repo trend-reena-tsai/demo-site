@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Artisan Home - Premium handcrafted home goods and furniture for modern living.">
+  <title>Artisan Home | Premium Handcrafted Home Goods</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">Artisan<span>Home</span></a>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">✦ New Collection 2024</span>
+        <h1 class="hero-title">Crafted with <span>Passion</span>, Made for Life</h1>
+        <p class="hero-description">
+          Discover our curated collection of handcrafted home goods, where timeless design meets exceptional quality. Each piece tells a story of craftsmanship.
+        </p>
+        <div class="hero-buttons">
+          <a href="products.html" class="btn btn-primary">Shop Collection</a>
+          <a href="about.html" class="btn btn-secondary">Our Story</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&h=500&fit=crop" alt="Beautiful living room with artisan furniture">
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Products</h2>
+        <p>Handpicked favorites from our latest collection, designed to bring warmth and style to your home.</p>
+      </div>
+      
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <a href="product-detail.html" class="product-card" data-category="furniture" data-price="899" data-name="Walnut Coffee Table">
+          <div class="product-card-image">
+            <span class="product-badge">New</span>
+            <img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?w=400&h=300&fit=crop" alt="Walnut Coffee Table">
+          </div>
+          <div class="product-card-content">
+            <span class="product-category">Furniture</span>
+            <h3>Walnut Coffee Table</h3>
+            <p>Hand-finished solid walnut with brass accents</p>
+            <span class="product-price">$899</span>
+          </div>
+        </a>
+        
+        <!-- Product 2 -->
+        <a href="product-detail.html" class="product-card" data-category="lighting" data-price="249" data-name="Ceramic Pendant Light">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=300&fit=crop" alt="Ceramic Pendant Light">
+          </div>
+          <div class="product-card-content">
+            <span class="product-category">Lighting</span>
+            <h3>Ceramic Pendant Light</h3>
+            <p>Handmade ceramic with warm amber glow</p>
+            <span class="product-price">$249</span>
+          </div>
+        </a>
+        
+        <!-- Product 3 -->
+        <a href="product-detail.html" class="product-card" data-category="textiles" data-price="129" data-name="Linen Throw Blanket">
+          <div class="product-card-image">
+            <span class="product-badge">Bestseller</span>
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop" alt="Linen Throw Blanket">
+          </div>
+          <div class="product-card-content">
+            <span class="product-category">Textiles</span>
+            <h3>Linen Throw Blanket</h3>
+            <p>100% organic linen, naturally dyed</p>
+            <span class="product-price">$129</span>
+          </div>
+        </a>
+        
+        <!-- Product 4 -->
+        <a href="product-detail.html" class="product-card" data-category="decor" data-price="75" data-name="Terracotta Vase Set">
+          <div class="product-card-image">
+            <img src="https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?w=400&h=300&fit=crop" alt="Terracotta Vase Set">
+          </div>
+          <div class="product-card-content">
+            <span class="product-category">Decor</span>
+            <h3>Terracotta Vase Set</h3>
+            <p>Set of 3 handcrafted terracotta vases</p>
+            <span class="product-price">$75</span>
+          </div>
+        </a>
+      </div>
+      
+      <div style="text-align: center; margin-top: var(--spacing-xl);">
+        <a href="products.html" class="btn btn-outline">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="section" style="background-color: var(--color-cream);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Shop by Category</h2>
+        <p>Explore our carefully curated categories to find exactly what you're looking for.</p>
+      </div>
+      
+      <div class="categories-grid">
+        <a href="products.html?category=furniture" class="category-card">
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop" alt="Furniture">
+          <div class="category-card-overlay">
+            <h3>Furniture</h3>
+            <span>24 Products</span>
+          </div>
+        </a>
+        
+        <a href="products.html?category=lighting" class="category-card">
+          <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&h=400&fit=crop" alt="Lighting">
+          <div class="category-card-overlay">
+            <h3>Lighting</h3>
+            <span>18 Products</span>
+          </div>
+        </a>
+        
+        <a href="products.html?category=textiles" class="category-card">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop" alt="Textiles">
+          <div class="category-card-overlay">
+            <h3>Textiles</h3>
+            <span>32 Products</span>
+          </div>
+        </a>
+        
+        <a href="products.html?category=decor" class="category-card">
+          <img src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?w=400&h=400&fit=crop" alt="Decor">
+          <div class="category-card-overlay">
+            <h3>Decor</h3>
+            <span>45 Products</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose Artisan Home</h2>
+        <p>We believe in quality, sustainability, and the beauty of handcrafted goods.</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">✋</div>
+          <h4>Handcrafted Quality</h4>
+          <p>Every piece is made by skilled artisans using traditional techniques passed down through generations.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🌿</div>
+          <h4>Sustainable Materials</h4>
+          <p>We source eco-friendly, sustainable materials to minimize our environmental footprint.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h4>Timeless Design</h4>
+          <p>Our products blend modern aesthetics with classic craftsmanship for lasting appeal.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">💝</div>
+          <h4>Fair Trade</h4>
+          <p>We ensure fair wages and working conditions for all our artisan partners worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="section" style="background-color: var(--color-cream);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Stay Connected</h2>
+        <p>Subscribe to our newsletter for exclusive offers, new arrivals, and artisan stories.</p>
+      </div>
+      
+      <form style="max-width: 500px; margin: 0 auto; display: flex; gap: var(--spacing-sm);">
+        <input type="email" placeholder="Enter your email" style="flex: 1; padding: 1rem; border: 1px solid var(--color-light-gray); border-radius: var(--radius-md); font-family: var(--font-body);">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Artisan<span>Home</span></a>
+          <p>Premium handcrafted home goods for modern living. Each piece tells a story of craftsmanship and care.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Categories</h4>
+          <ul class="footer-links">
+            <li><a href="products.html?category=furniture">Furniture</a></li>
+            <li><a href="products.html?category=lighting">Lighting</a></li>
+            <li><a href="products.html?category=textiles">Textiles</a></li>
+            <li><a href="products.html?category=decor">Decor</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li>hello@artisanhome.com</li>
+            <li>+1 (555) 123-4567</li>
+            <li>123 Craft Street</li>
+            <li>Portland, OR 97201</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Artisan Home. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Pinterest">p</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
